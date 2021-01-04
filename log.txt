@@ -1,0 +1,8 @@
+DEBUG(52):hello world
+WARNING(53):´íÎó
+DEBUG(47):hello world
+WARNING(48):´íÎó
+ERROR(31):D:/PythonProjects/femtut/DinoFem/meshfileops.pydimension should be 1,2,3. wrong dimension input!
+ERROR(31):D:/PythonProjects/femtut/DinoFem/meshfileops.py--dimension should be 1,2,3. wrong dimension input!
+ERROR(26):D:/PythonProjects/femtut/DinoFem/basis_function_set.py--this form will update later, now  only have the 101 basis type
+ERROR(35):D:/PythonProjects/femtut/DinoFem/meshfileops.py--dimension should be 1,2,3. wrong dimension input!

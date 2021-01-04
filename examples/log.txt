@@ -1,0 +1,7 @@
+ERROR(52):D:\PythonProjects\femtut\DinoFem\variation_form.py--this form will update later, now  only have the 101 basis type
+ERROR(52):D:\PythonProjects\femtut\DinoFem\variation_form.py--this form will update later, now  only have the 101 basis type
+ERROR(52):D:\PythonProjects\femtut\DinoFem\variation_form.py--this form will update later, now  only have the 101 basis type
+ERROR(52):D:\PythonProjects\femtut\DinoFem\variation_form.py--this form will update later, now  only have the 101 basis type
+ERROR(53):D:\PythonProjects\femtut\DinoFem\variation_form.py--this form will update later, now  only have the 101 basis type
+ERROR(52):D:\PythonProjects\femtut\DinoFem\variation_form.py--this form will update later, now  only have the 101 basis type
+ERROR(52):D:\PythonProjects\femtut\DinoFem\variation_form.py--this form will update later, now  only have the 101 basis type
