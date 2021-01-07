@@ -5,7 +5,7 @@ class IntegrateSet:
         self.integrate_type=None
 
     @staticmethod
-    def gauss(f,a,b):
+    def gauss_1d(f,a,b):
         # Gauss_Legand integrate
         gauss_points = [0, 0.9061798, 0.5384693, -0.9061798, -0.5384693]
         gauss_weights = [0.5688889, 0.2369269, 0.4786287, 0.2369269, 0.4786287]
@@ -19,9 +19,9 @@ class IntegrateSet:
         return int_value
 
     @classmethod
-    def choice_integrator(cls,integrator_name):
-        if integrator_name == "Gauss":
-            return cls.gauss
+    def integrator(cls,integrator_name):
+        if integrator_name == "Gauss1D":
+            return cls.gauss_1d
 
 
 if __name__ == '__main__':

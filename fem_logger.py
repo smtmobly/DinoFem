@@ -1,8 +1,8 @@
-'''
+"""
 继承的办法
 因为，从封装1的那个py文件中可以看到，下面调用的函数都是继承的别的类，那么我们直接把那个类拿过来使用就可以了
 
-'''
+"""
 
 import logging
 
@@ -32,7 +32,6 @@ class LoggerHandler(logging.Logger):
             self.addHandler(file_handle)
             file_handle.setFormatter(fmt)
         stream_handler = logging.StreamHandler()
-
 
         # 设置handle 的级别
         stream_handler.setLevel(level)

@@ -23,20 +23,21 @@ import math
 
 class Solver:
     def __init__(self, a, b, N, dim, trial_type, test_type):
-        self.fem_solver = FemSolver()
-        self.fem_solver.set_dim(dim)
+        # self.fem_solver = FemSolver()
+        # self.fem_solver.set_dim(dim)
+
         mesh_vtk_file, bc_vtk_file = generate_vtk_file(a, b, N)
-        self.fem_solver.set_mesh_vtk_file(mesh_vtk_file)
-        self.fem_solver.set_bc_vtk_file(bc_vtk_file)
-        self.fem_solver.set_basis_type_trial(trial_type)
-        self.fem_solver.set_basis_type_test(test_type)
+        self.input = InputParam(1,
+                                101,
+                                101,
+                                mesh_vtk_file,
+                                bc_vtk_file)
+        # 生成求解器，并生成网格信息
+        self.fem_solver = FemSolver(self.input)
+
         self.vf = None
-        self.bf = None
         self.set_vp()
-        self.set_bf()
-        self.fem_solver.generate_mesh()
         self.fem_solver.set_variation_form(self.vf)
-        self.fem_solver.set_boundary_form(self.bf)
         self.fem_solver.assemble_mat_b_bc()
         self.fem_solver.solve()
         self.err = self.fem_solver.estimate_err(self.exact_solution)
@@ -44,7 +45,7 @@ class Solver:
     def check_geo_mesh(self):
         print("check mesh")
         print(self.fem_solver.mesh.points)
-        print(self.fem_solver.mesh.grid_cells)
+        print(self.fem_solver.mesh.cells)
         print(self.fem_solver.mesh.fem_points_trial)
         print(self.fem_solver.mesh.fem_cells_trial)
 
@@ -81,14 +82,9 @@ class Solver:
         exp(x)*du/dx*dv/dx = -exp(x)*(cos(x)-2*sin(x)-x*cos(x)-x*sin(x))*v
         """
         vp = VariationForm()
-        vp.add_u_form(Form3(self.coeff, trial_der_order=1, test_der_order=1))
-        vp.add_b_form(Form2(self.load_function,der_order=0))
+        vp.add_u_form(Form3(self.coeff))
+        vp.add_b_form(Form2(self.load_function))
         self.vf = vp
-
-    def set_bf(self):
-        bf = BoundaryForm()
-        bf.add(-1,self.b_fun)
-        self.bf = bf
 
 
 def generate_vtk_file(a, b, N):

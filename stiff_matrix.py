@@ -1,53 +1,51 @@
 """
 组装刚度矩阵
 """
-from DinoFem import *
+from DinoFem import np, IntegrateSet,logger
 
 
 class StiffMatrix:
-    def __init__(self, mesh,variation_form,boundary_form):
-        self.mesh = mesh
-        self.num_of_basis = mesh.num_of_basis
-        self.__mat = np.zeros((mesh.num_of_basis, mesh.num_of_basis), dtype=float)
-        self.__b = np.zeros((mesh.num_of_basis, ), dtype=float)
-        self.variation_form = variation_form
-        self.boundary_form = boundary_form
-        self.kernal_u = None
-        self.kernal_b = None
+    def __init__(self, kernel):
+        self.mesh = kernel.mesh
+        self.input = kernel.mesh.input_param
+        self.kernel = kernel
+        self.num_of_basis = self.mesh.num_of_basis
+        self.__mat = np.zeros((self.mesh.num_of_basis, self.mesh.num_of_basis), dtype=float)
+        self.__b = np.zeros((self.mesh.num_of_basis, ), dtype=float)
         self.integrator = None
-
         self.choose_integrator()
-        self.analysis_variation_form()
         self.assemble_mat()
         self.assemble_b()
         self.treat_boundary_condition()
+        logger.info("STEP5:StiffMatrix are prepared and be checked.------------------------------------OK")
 
-    def analysis_variation_form(self):
-        self.kernal_u, self.kernal_b = \
-            self.variation_form.analysis_variation_form(self.mesh.basis_trial, self.mesh.basis_test)
+    @property
+    def dim(self):
+        return self.mesh.dim
 
     def choose_integrator(self):
-        self.integrator = IntegrateSet.choice_integrator("Gauss")
+        def func(i,f):
+            p1 = self.mesh.x(self.mesh.cells[i][0])
+            p2 = self.mesh.x(self.mesh.cells[i][1])
+            return IntegrateSet.integrator("Gauss1D")(f,p1,p2)
+
+        self.integrator = func
 
     def assemble_mat(self):
-        for i in range(self.mesh.num_of_cells):
-            for alpha in range(self.mesh.basis_trial.num_of_local_basis_fun):
-                for beta in range(self.mesh.basis_test.num_of_local_basis_fun):
-                    p1 = self.mesh.points[self.mesh.grid_cells[i][0]]
-                    p2 = self.mesh.points[self.mesh.grid_cells[i][1]]
-                    f = lambda x: self.kernal_u(p1, p2, alpha, beta, x)
-                    r = self.integrator(f, p1, p2)
+        for i in range(self.mesh.num_cells):
+            for alpha in range(self.input.basis_trial.phi_num):
+                for beta in range(self.input.basis_test.phi_num):
+                    f = lambda x: self.kernel.u_kernel(i, alpha, beta, x)
+                    r = self.integrator(i, f)
                     k1 = self.mesh.fem_cells_test[i][beta]
                     k2 = self.mesh.fem_cells_trial[i][alpha]
                     self.__mat[k1][k2] += r
 
     def assemble_b(self):
-        for i in range(self.mesh.num_of_cells):
-            for beta in range(self.mesh.basis_test.num_of_local_basis_fun):
-                p1 = self.mesh.points[self.mesh.grid_cells[i][0]]
-                p2 = self.mesh.points[self.mesh.grid_cells[i][1]]
-                f = lambda x: self.kernal_b(p1, p2, beta, x)
-                r = self.integrator(f, p1, p2)
+        for i in range(self.mesh.num_cells):
+            for beta in range(self.input.basis_test.phi_num):
+                f = lambda x: self.kernel.b_kernel(i, beta, x)
+                r = self.integrator(i, f)
                 k = self.mesh.fem_cells_test[i][beta]
                 self.__b[k] += r
 
@@ -60,7 +58,7 @@ class StiffMatrix:
                 self.__mat[i][:] = 0
                 self.__mat[i][i] = 1
                 # g是边界的值
-                self.__b[i] = self.boundary_form[-1](self.mesh.fem_points_trial[i])
+                self.__b[i] = self.mesh.boundary_value[k]  # (self.mesh.fem_points_trial[i])
 
     @property
     def mat(self):
