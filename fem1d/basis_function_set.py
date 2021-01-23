@@ -1,4 +1,4 @@
-from DinoFem import *
+from DinoFem.fem1d import *
 
 
 # --------------------------------------------------------

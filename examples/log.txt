@@ -94,3 +94,51 @@ INFO(7):STEP4:Kernels are prepared and be checked.------------------------------
 INFO(20):STEP5:StiffMatrix are prepared and be checked.------------------------------------OK
 INFO(60):STEP6:The FEM is solved.------------------------------------------------------------------------OK
 INFO(61):>>--------END FEM PROCEDURE----------<<
+INFO(58):<<--------BEGIN FEM PROCEDURE---------->>
+INFO(59):STEP 1:input param are prepared and be checked.------------------------------------OK
+INFO(20):STEP2:FemMesh are prepared and be checked.------------------------------------OK
+INFO(40):STEP3:variation_form are prepared and be checked.------------------------------------OK
+INFO(7):STEP4:Kernels are prepared and be checked.------------------------------------OK
+INFO(20):STEP5:StiffMatrix are prepared and be checked.------------------------------------OK
+INFO(60):STEP6:The FEM is solved.------------------------------------------------------------------------OK
+INFO(61):>>--------END FEM PROCEDURE----------<<
+INFO(58):<<--------BEGIN FEM PROCEDURE---------->>
+INFO(59):STEP 1:input param are prepared and be checked.------------------------------------OK
+INFO(20):STEP2:FemMesh are prepared and be checked.------------------------------------OK
+INFO(40):STEP3:variation_form are prepared and be checked.------------------------------------OK
+INFO(7):STEP4:Kernels are prepared and be checked.------------------------------------OK
+INFO(20):STEP5:StiffMatrix are prepared and be checked.------------------------------------OK
+INFO(60):STEP6:The FEM is solved.------------------------------------------------------------------------OK
+INFO(61):>>--------END FEM PROCEDURE----------<<
+INFO(58):<<--------BEGIN FEM PROCEDURE---------->>
+INFO(59):STEP 1:input param are prepared and be checked.------------------------------------OK
+INFO(20):STEP2:FemMesh are prepared and be checked.------------------------------------OK
+INFO(40):STEP3:variation_form are prepared and be checked.------------------------------------OK
+INFO(7):STEP4:Kernels are prepared and be checked.------------------------------------OK
+INFO(20):STEP5:StiffMatrix are prepared and be checked.------------------------------------OK
+INFO(60):STEP6:The FEM is solved.------------------------------------------------------------------------OK
+INFO(61):>>--------END FEM PROCEDURE----------<<
+INFO(58):<<--------BEGIN FEM PROCEDURE---------->>
+INFO(59):STEP 1:input param are prepared and be checked.------------------------------------OK
+INFO(20):STEP2:FemMesh are prepared and be checked.------------------------------------OK
+INFO(40):STEP3:variation_form are prepared and be checked.------------------------------------OK
+INFO(7):STEP4:Kernels are prepared and be checked.------------------------------------OK
+INFO(20):STEP5:StiffMatrix are prepared and be checked.------------------------------------OK
+INFO(60):STEP6:The FEM is solved.------------------------------------------------------------------------OK
+INFO(61):>>--------END FEM PROCEDURE----------<<
+INFO(58):<<--------BEGIN FEM PROCEDURE---------->>
+INFO(59):STEP 1:input param are prepared and be checked.------------------------------------OK
+INFO(20):STEP2:FemMesh are prepared and be checked.------------------------------------OK
+INFO(40):STEP3:variation_form are prepared and be checked.------------------------------------OK
+INFO(7):STEP4:Kernels are prepared and be checked.------------------------------------OK
+INFO(20):STEP5:StiffMatrix are prepared and be checked.------------------------------------OK
+INFO(60):STEP6:The FEM is solved.------------------------------------------------------------------------OK
+INFO(61):>>--------END FEM PROCEDURE----------<<
+INFO(58):<<--------BEGIN FEM PROCEDURE---------->>
+INFO(59):STEP 1:input param are prepared and be checked.------------------------------------OK
+INFO(20):STEP2:FemMesh are prepared and be checked.------------------------------------OK
+INFO(40):STEP3:variation_form are prepared and be checked.------------------------------------OK
+INFO(7):STEP4:Kernels are prepared and be checked.------------------------------------OK
+INFO(20):STEP5:StiffMatrix are prepared and be checked.------------------------------------OK
+INFO(60):STEP6:The FEM is solved.------------------------------------------------------------------------OK
+INFO(61):>>--------END FEM PROCEDURE----------<<

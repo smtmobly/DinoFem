@@ -1,7 +1,7 @@
 """
 组装刚度矩阵
 """
-from DinoFem import np, IntegrateSet,logger
+from DinoFem.fem1d import np, IntegrateSet,logger
 
 
 class StiffMatrix:

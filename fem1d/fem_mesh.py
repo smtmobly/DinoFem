@@ -1,4 +1,4 @@
-from DinoFem import MeshObject,logger
+from DinoFem.fem1d import MeshObject,logger
 
 
 class FemMesh(MeshObject):

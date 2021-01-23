@@ -1,7 +1,7 @@
 """
 InputParam 将所有的基本输入，放置到其中。
 """
-from DinoFem import logger, BasisFun, pv
+from DinoFem.fem1d import logger, BasisFun, pv
 
 
 class InputParam:

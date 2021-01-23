@@ -1,4 +1,4 @@
-from DinoFem import KernelObject,logger
+from DinoFem.fem1d import KernelObject,logger
 
 
 class FemKernel(KernelObject):

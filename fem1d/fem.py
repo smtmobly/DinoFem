@@ -9,8 +9,8 @@ FemSolver 类，
     variation_form          变分形式
     boundary_form           边界形式
 """
-from DinoFem import FemMesh,FemKernel,StiffMatrix
-from DinoFem import direct_inverse,logger
+from DinoFem.fem1d import FemMesh,FemKernel,StiffMatrix
+from DinoFem.fem1d import direct_inverse,logger
 
 
 class FemSolver:

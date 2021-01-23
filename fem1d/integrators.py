@@ -28,4 +28,4 @@ if __name__ == '__main__':
     def f(x):
         import math
         return math.exp(x)
-    print(IntegrateSet.gauss(f,0,1))
+    print(IntegrateSet.gauss_1d(f,0,1))

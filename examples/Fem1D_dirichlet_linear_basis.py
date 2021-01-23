@@ -14,7 +14,7 @@ u(1)=cos(1)
 精确解
 u=x*cos(x)
 """
-from DinoFem import *
+from DinoFem.fem1d import *
 import math
 # -------------------------------------------------
 #  准备mesh_vtk_file,bc_vtk_file
